@@ -20,7 +20,7 @@ function Home() {
         });
     };
 
-    const toggleTodo = (id) => { //update todo ??
+    const toggleTodo = (id) => { 
         axios.put(`http://localhost:5000/api/todos/${id}`, { completed: !todos.find(t => t._id === id).completed })
             .then(res => setTodos(todos.map(t => (t._id === id ? res.data : t))));
     };
@@ -33,7 +33,8 @@ function Home() {
     return (
         <div className='todo-container'>
             <h1>TODO LIST</h1>
-            <input value={text} onChange={e => setText(e.target.value)} />
+            <input value={text} onKeyDown={(e) => e.key === 'Enter' && addTodo(e)} 
+                onChange={e => setText(e.target.value)} />
             <button style={{ marginBottom: '20px'}} onClick={addTodo}>Add</button>
             <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
         </div>
