@@ -1,70 +1,159 @@
-# Getting Started with Create React App
+📌 Description
+TODO-APP is a full-stack task management application built with the MERN stack (MongoDB, Express, React, Node.js). It enables users to create, manage, and track daily tasks through a clean, responsive, and intuitive interface. Designed with productivity in mind, the app features persistent storage, complete CRUD functionality, and real-time interaction between client and server.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrates end-to-end full-stack development, with a strong focus on backend architecture, frontend responsiveness, and RESTful API design.
 
-## Available Scripts
+🚀 Live Demo
+🚧 Deployment in progress...
+📽️ Watch demo video (coming soon)
+🔗 Link to deployed app will go here
 
-In the project directory, you can run:
+📸 Preview
 
-### `npm start`
+![TODO-APP Preview](./assets/TODO-APP-preview.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+⚙️ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    📝 Create, update, complete, and delete to-dos
 
-### `npm run build`
+    🎯 Mark items as complete/incomplete
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    💾 Persistent storage via MongoDB
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    🔄 Real-time updates using Axios
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    📱 Responsive layout for desktop and mobile
 
-### `npm run eject`
+    🔐 (Planned) User authentication with JWT
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    🏷️ (Planned) Categorize and filter tasks
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🛠️ Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Frontend
 
-## Learn More
+    React 19 (Hooks, Functional Components)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Axios for API communication
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    React Router DOM for navigation
 
-### Code Splitting
+    React Icons for UI enhancement
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Backend
 
-### Analyzing the Bundle Size
+    Node.js & Express.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    MongoDB with Mongoose for schema modeling
 
-### Making a Progressive Web App
+    CORS & dotenv for cross-origin and environment config
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+📂 Project Structure
+```bash
+TODO-APP/
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── TodoList.js
+│   │   │   └── TodoItem.js
+│   │   ├── pages/
+│   │   │   └── Home.js
+│   │   ├── App.js
+│   │   ├── App.css
+│   │   ├── index.js
+│   │   └── index.css
+├── backend/
+│   ├── models/
+│   │   └── Todo.js
+│   ├── routes/
+│   │   └── todoRoutes.js
+│   ├── server.js
+│   └── .env (excluded)
+├── assets/
+│   └── TODO-APP-preview.png
+└── README.md
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🧪 Setup Instructions
 
-### Deployment
+📦 Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    Node.js & npm installed
 
-### `npm run build` fails to minify
+    MongoDB running locally or MongoDB Atlas account
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🚀 Installation Steps
+
+1.  Clone the repository
+
+```bash
+git clone https://github.com/tobyanderson1983/TODO-APP.git
+cd TODO-APP
+```
+
+2. Install dependencies for frontend and backend
+
+```bash
+cd frontend && npm install
+cd ../backend && npm install
+```
+
+3. Configure backend environment Create a .env file in /backend/:
+
+MONGO_URI=mongodb://localhost:27017/todos
+PORT=5000
+
+4. Run the backend server
+
+```bash
+cd ../backend
+npm run dev
+```
+
+5. Run the frontend app
+
+```bash
+cd ../frontend
+npm start
+```
+
+🧭 Roadmap
+
+- [ ] Add user authentication (register/login)
+- [ ] Deploy frontend (Netlify/Vercel)
+- [ ] Deploy backend (Render/Heroku)
+- [ ] Add edit functionality for todos
+- [ ] Add filtering and tags for task categorization
+- [ ] Add due dates or priorities
+
+
+
+🧠 What I Learned
+
+- 🏗️ Designed a full-stack MERN architecture from scratch
+
+- 🔌 Built RESTful APIs using Express and Mongoose
+
+- 🔐 Connected frontend and backend securely via Axios
+
+- ⚛️ Managed state with React Hooks
+
+- ⏳ Handled async operations and UI state
+
+- 📁 Structured scalable and maintainable project folders
+
+
+🙌 Credits
+
+    Built with 💻 and ☕ by Toby Anderson
+    Feel free to reach out or fork this repo for your own learning!
+
+📄 License
+
+    This project is licensed under the MIT License — free to use and modify.
+
