@@ -10,7 +10,7 @@ This project demonstrates end-to-end full-stack development, with a strong focus
 
 📸 Preview
 
-![TODO-APP Preview](./assets/TODO-APP-preview.png)
+![TODO-APP Preview](../assets/TODO-APP-preview.png)
 
 
 
