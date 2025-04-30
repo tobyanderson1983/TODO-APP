@@ -104,9 +104,10 @@ cd ../backend && npm install
 ```
 
 3. Configure backend environment Create a .env file in /backend/:
-
+```bash
 MONGO_URI=mongodb://localhost:27017/todos
 PORT=5000
+```
 
 4. Run the backend server
 
