@@ -1,5 +1,7 @@
 📌 Description
-TODO-APP is a full-stack task management application built with the MERN stack (MongoDB, Express, React, Node.js). It enables users to create, manage, and track daily tasks through a clean, responsive, and intuitive interface. Designed with productivity in mind, the app features persistent storage, complete CRUD functionality, and real-time interaction between client and server.
+TODO-APP is full-stack task management application built with the **MERN stack** (MongoDB, Express, React, Node.js). This app allows users to create, manage, and track tasks through a clean and responsive interface.
+
+Designed for productivity and scalability, TODO-APP features full CRUD functionality, persistent database storage, and a well-structured frontend/backend architecture.
 
 This project demonstrates end-to-end full-stack development, with a strong focus on backend architecture, frontend responsiveness, and RESTful API design.
 
@@ -33,23 +35,20 @@ This project demonstrates end-to-end full-stack development, with a strong focus
 
 🛠️ Tech Stack
 
-Frontend
+### Frontend
+- **React 19** (Hooks, Functional Components)  
+  > ⚠️ *React 19 is installed, but new features unique to React 19 were not utilized.*
+- **Axios** — HTTP client for API requests
+- **React Router DOM** — Routing and navigation
+- **React Icons** — Icon integration
+- **React Scripts** — Build and run scripts
 
-    React 19 (Hooks, Functional Components)
-
-    Axios for API communication
-
-    React Router DOM for navigation
-
-    React Icons for UI enhancement
-
-Backend
-
-    Node.js & Express.js
-
-    MongoDB with Mongoose for schema modeling
-
-    CORS & dotenv for cross-origin and environment config
+### Backend
+- **Node.js & Express.js** — Server and RESTful API
+- **MongoDB** — NoSQL database
+- **Mongoose** — Schema modeling and queries
+- **dotenv** — Environment variable management
+- **CORS** — Cross-origin resource sharing
 
 
 📂 Project Structure
@@ -136,17 +135,17 @@ npm start
 
 🧠 What I Learned
 
-- 🏗️ Designed a full-stack MERN architecture from scratch
+- 🏗️ Full-stack architecture using the MERN stack
 
-- 🔌 Built RESTful APIs using Express and Mongoose
+-🔌 RESTful API design and integration
 
-- 🔐 Connected frontend and backend securely via Axios
+- ⚛️ React state management with Hooks
 
-- ⚛️ Managed state with React Hooks
+- 📦 Async operations and error handling in UI
 
-- ⏳ Handled async operations and UI state
+- 📁 Scalable and modular project structuring
 
-- 📁 Structured scalable and maintainable project folders
+- 🌐 Connecting frontend to backend securely using Axioss
 
 
 🙌 Credits
