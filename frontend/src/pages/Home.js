@@ -1,5 +1,3 @@
-// Home.js --Main todo page
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TodoList from '../components/TodoList';
@@ -10,76 +8,66 @@ function Home() {
     const [text, setText] = useState('');
     const [error, setError] = useState('');
 
-    // Fetch todos on mount
     useEffect(() => {
-        const fetchTodos = async () => {
-            try {
-                const res = await axios.get('http://localhost:5000/api/todos');
-                setTodos(res.data);
-                setError('');
-            } catch (err) {
-                console.error('Failed to fetch todos:', err);
-                setError('Could not load todos. Please try again later.');
-            }
-        };
-        fetchTodos();
+        axios.get('http://localhost:5000/api/todos')
+            .then(res => setTodos(res.data))
+            .catch(err => {
+                console.error(err);
+                setError('Failed to load todos. Please refresh.');
+            });
     }, []);
 
-    const addTodo = async () => {
-        if (!text.trim()) {
-            setError('Todo cannot be empty.');
-            return;
-        }
-
-        try {
-            const res = await axios.post('http://localhost:5000/api/todos', { text });
-            setTodos([...todos, res.data]);
-            setText('');
-            setError('');
-        } catch (err) {
-            console.error('Failed to add todo:', err);
-            setError('Failed to add todo. Try again.');
-        }
-    };
-
-    const toggleTodo = async (id) => {
-        try {
-            const todo = todos.find(t => t._id === id);
-            const res = await axios.put(`http://localhost:5000/api/todos/${id}`, {
-                completed: !todo.completed
+    const addTodo = () => {
+        if (!text.trim()) return;
+        axios.post('http://localhost:5000/api/todos', { text })
+            .then(res => {
+                setTodos([...todos, res.data]);
+                setText('');
+                setError('');
+            })
+            .catch(err => {
+                console.error(err);
+                setError('Could not add todo. Try again.');
             });
-            setTodos(todos.map(t => (t._id === id ? res.data : t)));
-            setError('');
-        } catch (err) {
-            console.error('Failed to toggle todo:', err);
-            setError('Failed to update todo. Try again.');
-        }
     };
 
-    const deleteTodo = async (id) => {
-        try {
-            await axios.delete(`http://localhost:5000/api/todos/${id}`);
-            setTodos(todos.filter(t => t._id !== id));
-            setError('');
-        } catch (err) {
-            console.error('Failed to delete todo:', err);
-            setError('Failed to delete todo. Try again.');
-        }
+    const toggleTodo = (id) => {
+        const todo = todos.find(t => t._id === id);
+        if (!todo) return;
+
+        axios.put(`http://localhost:5000/api/todos/${id}`, { completed: !todo.completed })
+            .then(res => {
+                setTodos(todos.map(t => (t._id === id ? res.data : t)));
+                setError('');
+            })
+            .catch(err => {
+                console.error(err);
+                setError('Could not update todo status.');
+            });
+    };
+
+    const deleteTodo = (id) => {
+        axios.delete(`http://localhost:5000/api/todos/${id}`)
+            .then(() => {
+                setTodos(todos.filter(t => t._id !== id));
+                setError('');
+            })
+            .catch(err => {
+                console.error(err);
+                setError('Could not delete todo.');
+            });
     };
 
     return (
         <div className='todo-container'>
             <h1>TODO LIST</h1>
-
-            {error && <div style={{ color: 'red', marginBottom: '1rem' }}>{error}</div>}
-
+            {error && <div className="error-message">{error}</div>}
             <input
                 value={text}
-                onKeyDown={(e) => e.key === 'Enter' && addTodo()}
-                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && addTodo(e)}
+                onChange={e => setText(e.target.value)}
             />
             <button style={{ marginBottom: '20px' }} onClick={addTodo}>Add</button>
-
             <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
         </div>
     );
